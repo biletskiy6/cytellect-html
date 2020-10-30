@@ -1,0 +1,80 @@
+@import 'default'
+@import 'blocks/header'
+@import 'media'
+
+.title
+    color: #fff
+    font-size: 32px
+
+.top-line
+    padding: 22px 0
+    background-color: $grey
+    border-bottom: 1px solid $accent
+    border-top: 1px solid $accent
+.logo
+    text-decoration: none
+    color: $accent
+    text-transform: uppercase
+
+
+.projects
+    +row-flex()
+    &__item
+        +col()
+        +size(4)
+
+.project
+    display: flex
+    padding: 15px 30px
+    background-color: $card-color
+    color: #fff
+    &__meta
+        flex: none
+        margin-right: 15px
+    &__image
+        width: 40px
+        height: 40px
+        object-fit: cover
+        border-radius: 50%
+    &__header
+        color: #fff
+        font-weight: 600
+        margin-bottom: 20px
+    &__text
+        font-size: 12px
+        line-height: 1
+        color: #a4a4a4
+    &__bottom
+        display: flex
+        justify-content: space-between
+.author
+    display: flex
+    font-size: 12px
+    &__image
+        width: 20px
+        height: 20px
+        object-fit: cover
+        border-radius: 50%
+    &__about
+        display: flex
+.participants
+    display: flex
+    &__item
+    &__image
+        width: 15px
+        height: 15px
+        object-fit: cover
+        border-radius: 50%
+
+
+
+.single
+    &-container
+        +row-flex()
+    &-left
+        display: flex
+        +col()
+        +size(8)
+    &-right
+        +col()
+        +size(4)

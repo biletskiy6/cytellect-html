@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>OptimizedHTML 4</title>
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:image" content="path/to/image.jpg">
+  <meta name="theme-color" content="#283645">
+  <meta name="msapplication-navbutton-color" content="#283645">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#283645">
+  <link rel="icon" href="static/img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/img/favicon/apple-touch-icon-180x180.png">
+  <base href="/">
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+
+<body class="home">
+
+  <div class="top-line">
+    <div class="container">
+      <div class="top-line-wrapper">
+        <a class="logo" href="#">Cytellect</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="projects-container">
+    <div class="container">
+      <h2 class="title">Favorites</h2>
+      <ul class="projects">
+        <li class="projects__item project">
+          <div class="project__meta">
+            <img src="https://pbs.twimg.com/profile_images/1002416157280727040/7SjA9KTJ_400x400.jpg" alt="" class="project__image">
+          </div>
+          <div class="project__about">
+            <h3 class="project__header">Проект по заселению Марса</h3>
+            <p class="project__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem quo perferendis
+              ex? Repudiandae nam modi aspernatur! Nobis provident culpa velit, officia unde suscipit voluptatum
+              cupiditate, sint mollitia illum itaque ea!</p>
+
+              <div class="project__bottom">
+                <div class="project__author author">
+                  <img class="author__image" src="https://pbs.twimg.com/profile_images/1002416157280727040/7SjA9KTJ_400x400.jpg" alt="">
+                  <div class="author__about">
+                    <h4 class="author__name">John Doe</h4>
+                    <span class="circle"></span>
+                    <date class="author__stamp">5 minutes ago</date>
+                  </div>
+                </div>
+                <div class="project__participants">
+                  <ul class="participants">
+                    <li class="participants__item">
+                      <img src="https://pbs.twimg.com/profile_images/1002416157280727040/7SjA9KTJ_400x400.jpg" alt="" class="participants__image">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div id="chartdiv"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="//cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<div id="chartdiv"></div>
+  <script src="static/js/libs.min.js"></script>
+  <script src="static/js/scripts.min.js"></script>
+  <script>
+    /**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+am4core.useTheme(am4themes_animated);
+
+// Create chart
+var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+
+// Create series
+var series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+
+// Set data
+series.data = [{
+  "name": "First",
+  "children": [{
+    "name": "A1", "value": 100
+  }, {
+    "name": "A2", "value": 60
+  }, {
+    "name": "A3", "value": 30
+  }]
+}, {
+  "name": "Second",
+  "children": [{
+    "name": "B1", "value": 135
+  }, {
+    "name": "B2", "value": 98
+  }, {
+    "name": "B3", "value": 56
+  }]
+}, {
+  "name": "Third",
+  "children": [{
+    "name": "C1", "value": 335
+  }, {
+    "name": "C2", "value": 148
+  }, {
+    "name": "C3", "value": 126
+  }, {
+    "name": "C4", "value": 26
+  }]
+}, {
+  "name": "Fourth",
+  "children": [{
+    "name": "D1", "value": 415,
+  }, {
+    "name": "D2", "value": 148
+  }, {
+    "name": "D3", "value": 89
+  }, {
+    "name": "D4", "value": 64
+  }, {
+    "name": "D5", "value": 16
+  }]
+}, {
+  "name": "Fifth",
+  "children": [{
+    "name": "E1", "value": 687
+  }, {
+    "name": "E2", "value": 148
+  }]
+}];
+
+// Set up data fields
+series.dataFields.value = "value";
+series.dataFields.name = "name";
+series.dataFields.children = "children";
+
+// Add labels
+series.nodes.template.label.text = "{name}";
+series.fontSize = 10;
+series.minRadius = 15;
+series.maxRadius = 40;
+
+series.centerStrength = 0.5;
+  </script>
+</body>
+
+</html>
